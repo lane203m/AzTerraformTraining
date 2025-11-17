@@ -29,6 +29,8 @@ steps:
     scriptLocation: 'inlineScript'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
     inlineScript: |
+      # Set subscription from service connection
+      export ARM_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
       terraform init
 
 - task: AzureCLI@2
@@ -39,6 +41,8 @@ steps:
     scriptLocation: 'inlineScript'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
     inlineScript: |
+      # Set subscription from service connection
+      export ARM_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
       terraform plan -var-file="env/dev.tfvars"
 
 - task: AzureCLI@2
@@ -50,4 +54,6 @@ steps:
     scriptLocation: 'inlineScript'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
     inlineScript: |
+      # Set subscription from service connection
+      export ARM_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
       terraform apply -auto-approve -var-file="env/dev.tfvars"

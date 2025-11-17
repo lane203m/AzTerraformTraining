@@ -19,8 +19,9 @@ terraform {
 
 provider "azurerm" {
   features{}
-  storage_use_azuread = true
-  subscription_id     = var.subscription_id
+  use_cli = true
+  # storage_use_azuread = true
+  # subscription_id will be automatically detected from Azure CLI context or ARM_SUBSCRIPTION_ID env var
 }
 
 data "azurerm_client_config" "current" {}

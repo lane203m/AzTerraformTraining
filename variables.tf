@@ -3,11 +3,8 @@ variable "location" {
   type        = string
 }
 
-variable "subscription_id" {
-  description = "Azure subscription ID"
-  type        = string
-  sensitive   = true
-}
+# Subscription ID is now handled via Azure CLI context or ARM_SUBSCRIPTION_ID environment variable
+# No longer needed as a Terraform variable
 
 variable "first_rg_name" {
   description = "Name for the first resource group"
