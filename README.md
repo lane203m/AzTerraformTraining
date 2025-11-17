@@ -1,4 +1,11 @@
-# AzTerraformTraining
+# Azure Terraform Training
 
+A Terraform lab for automating Azure infrastructure deployment across multiple environments.
 
-This is a small Terraform solution for automating the setup and provisioning of resources/environments for an imagined solution/service/app. 
+## Overview
+
+The solution provisions the following Azure resources:
+- **Resource Groups**: Organized by environment and purpose
+- **Storage Account**: With configurable performance tiers and replication
+- **Key Vault**: For secure secrets management
+- **Environment-specific configurations**: Dev, Prod, and Local environments
